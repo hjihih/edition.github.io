@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photopea API - Mover Capa</title>
+</head>
+<body>
+    <iframe id="photopea" style="width:100%; height:70vh"></iframe>
+    <button onclick="savePSD()">Guardar PSD</button>
+    <button onclick="moveLayer()">Mover Capa 20px</button> <!-- Nuevo botón -->
+
+    <script>
+        const photopea = document.getElementById('photopea');
+        photopea.src = "https://www.photopea.com?api=1";
+        
+        let ppApi;
+        let currentDocument;
+
+        window.addEventListener('message', (e) => {
+            if (e.source === photopea.contentWindow && e.data.type === 'apiReady') {
+                ppApi = e.source;
+                initializeDocument();
+            }
+        });
+
+        async function initializeDocument() {
+            ppApi.postMessage({
+                type: 'apiPromise',
+                resolve: (doc) => currentDocument = doc
+            }, '*');
+
+            await new Promise(resolve => ppReady(resolve));
+            
+            ppApi.postMessage({
+                type: 'newPSD',
+                width: 800,
+                height: 600,
+                name: 'resultado.psd'
+            }, '*');
+        }
+
+        function savePSD() {
+            ppApi.postMessage({
+                type: 'saveAsPSD',
+                document: currentDocument
+            }, '*');
+        }
+
+        // Función para mover la capa
+        function moveLayer() {
+            ppApi.postMessage({
+                type: 'script',
+                code: `
+                    try {
+                        app.activeDocument.activeLayer.translate(20,20);
+                        app.activeDocument.activeLayer.name = "Capa Movida";
+                    } catch(e) {
+                        alert('Error al mover la capa: ' + e);
+                    }
+                `
+            }, '*');
+        }
+
+        function ppReady(callback) {
+            ppApi.postMessage({ type: 'apiPromise' }, '*').then(callback);
+        }
+    </script>
+</body>
+</html>
