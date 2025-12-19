@@ -91,11 +91,29 @@ body {
   border-top-left-radius: 18px;
   border-bottom-right-radius: 18px;
   border: 2px solid #c40000;
-  box-shadow: 0 0px 10px rgba(0,0,0,O,1);
+  box-shadow: 0 0px 10px rgba(0,0,0,0.1);  /* Sombra suave por defecto */
   overflow: hidden;
   cursor: pointer;
   flex-shrink: 0;
+  transition: all 0.3s ease;  /* Transición suave para el hover */
 }
+
+/* ================= EFECTO HOVER EN TARJETA ================= */
+.news-card:hover {
+  background-color: #f8f8f8;  /* Fondo más claro */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);  /* Sombra más intensa */
+  transform: scale(1.05);  /* Escala un poco la tarjeta */
+}
+
+.news-card:hover .news-title {
+  font-size: 26px;  /* Aumenta el tamaño de la fuente */
+  font-weight: bold;
+}
+
+.news-card:hover .news-text {
+  opacity: 0.8;  /* Reduce la opacidad del texto */
+}
+
 .goikue-section {
             display: flex;
             justify-content: space-between; /* Manda el título a la izquierda y el botón a la derecha */
