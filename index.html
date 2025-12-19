@@ -120,8 +120,8 @@ body {
 }
 
 .news-image {
-   border-radius: 18px 0 18px 0;
-    width: 170px;
+  border-radius: 18px 0 18px 0;
+  width: 120px;
   overflow: hidden;
 }
 
@@ -159,7 +159,6 @@ body {
   bottom: 10px;
   width: 36px;
   height: 36px;
-  background: #c40000;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -242,7 +241,7 @@ body {
 </div>
 
 <script>
-// NEWS DATA (incluye fecha y fuente)
+// NEWS DATA (solo se añade "type")
 const newsData = [
   {
     title: "IKER LUQUE, RENOVADO HASTA 2028",
@@ -250,33 +249,49 @@ const newsData = [
     date: "14/09/2025",
     source: "Real Sociedad",
     image: "https://cdn.realsociedad.eus/Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg",
-    icon: "https://cdn-icons-png.flaticon.com/512/44/44386.png"
+    type: "oficial"
   },
   {
-    title: "Nuevas políticas medioambientales",
+    title: "Estadísticas del partido",
     text: "Texto ampliado 2",
     date: "12/09/2025",
     source: "Club Oficial",
     image: "https://picsum.photos/900/500?2",
-    icon: "https://cdn-icons-png.flaticon.com/512/427/427735.png"
+    type: "estadistica"
   },
   {
-    title: "Innovación educativa transforma el aprendizaje",
+    title: "Nuevo fichaje confirmado",
     text: "Texto ampliado 3",
     date: "10/09/2025",
     source: "Cantera RSO",
     image: "https://picsum.photos/900/500?3",
-    icon: "https://cdn-icons-png.flaticon.com/512/201/201818.png"
-  },
-  {
-    title: "Gure bizitza educativa transforma el aprendizaje",
-    text: "Texto ampliado 3",
-    date: "10/09/2025",
-    source: "Cantera RSO",
-    image: "https://picsum.photos/900/500?3",
-    icon: "https://cdn-icons-png.flaticon.com/512/201/201818.png"
+    type: "traspaso"
   }
 ];
+
+// CONFIGURACIÓN DE TIPOS (nuevo)
+const newsTypes = {
+  estadistica: {
+    color: "#4caf50",
+    icon: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
+  },
+  noticia: {
+    color: "#2196f3",
+    icon: "https://cdn-icons-png.flaticon.com/512/21/21601.png"
+  },
+  oficial: {
+    color: "#c40000",
+    icon: "https://cdn-icons-png.flaticon.com/512/44/44386.png"
+  },
+  traspaso: {
+    color: "#ff9800",
+    icon: "https://cdn-icons-png.flaticon.com/512/854/854878.png"
+  },
+  informacion: {
+    color: "#9c27b0",
+    icon: "https://cdn-icons-png.flaticon.com/512/1828/1828817.png"
+  }
+};
 
 const marquee = document.getElementById("marquee");
 
@@ -284,6 +299,8 @@ function createNewsCard(news, index) {
   const card = document.createElement("div");
   card.className = "news-card";
   card.onclick = () => openNews(index);
+
+  const typeConfig = newsTypes[news.type] || newsTypes.noticia;
 
   card.innerHTML = `
     <div class="news-image">
@@ -293,8 +310,8 @@ function createNewsCard(news, index) {
       <div class="news-title">${news.title}</div>
       <div class="news-meta">${news.date} · ${news.source}</div>
     </div>
-    <div class="news-icon">
-      <img src="${news.icon}">
+    <div class="news-icon" style="background:${typeConfig.color}">
+      <img src="${typeConfig.icon}">
     </div>
   `;
   return card;
