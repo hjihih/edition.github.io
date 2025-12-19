@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1909 Real SOciedad</title>
- <!-- Facinvon -->
-  <link rel="icon" href="/assets/icons/favicon-96x96.png" sizes="96x96">
-  
+<title>1909 Real Sociedad</title>
+
+<link rel="icon" href="/assets/icons/favicon-96x96.png" sizes="96x96">
 
 <style>
- @font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) 
-		  format('woff2');}
 @font-face {
-    font-family: Principal;
-    src: url("/Delight.ttf") format("truetype");
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v145/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+@font-face {
+  font-family: Principal;
+  src: url("/Delight.ttf") format("truetype");
 }
 
 body {
@@ -26,40 +29,60 @@ body {
   background: #fff;
   color: #111;
 }
-   .main-header {
-            background-color: #0067b1; /* Color rojo similar al del Atleti */
-            padding: 10px 20px;
-            display: flex;
-            align-items: center; /* Centra verticalmente los elementos (logo-container y el resto) */
-            justify-content: space-between; /* Manda el logo a la izquierda y el resto a la derecha */
-        }
 
-        .logo-container {
-            display: flex; /* Aplica flexbox al contenedor del logo y el texto */
-            align-items: center; /* Centra verticalmente el logo y el texto entre sí */
-        }
-
-        .logo-img {
-            width: 30px; /* Ajusta el tamaño del logo según necesites */
-            height: auto;
-            margin-right: 10px; /* Espacio entre el logo y el texto */
-            /* Nota: Necesitas añadir tu imagen para que esto funcione */
-        }
-
-        .site-title {
-            color: #FFFFFF; /* Texto blanco */
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-/* ================= CONTENEDOR VISIBLE ================= */
-.news-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 20px 0;
-  background: #ffff;
+.main-header {
+  background-color: #0067b1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* ================= CARRIL ================= */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.site-title {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.goikue-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.goikue-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.all-goikue-button {
+  background: #fff;
+  color: #0067b1;
+  border: 2px solid #0067b1;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(0,0,0,0.26);
+}
+
+.news-wrapper {
+  overflow: hidden;
+  padding: 20px 0;
+}
+
 .news-marquee {
   display: flex;
   gap: 20px;
@@ -67,101 +90,38 @@ body {
   animation: ticker 30s linear infinite;
 }
 
-/* ================= ANIMACIÓN REAL ================= */
 @keyframes ticker {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); } /* se mueve la mitad porque duplicamos */
+  to { transform: translateX(-50%); }
 }
 
-/* ================= BLOQUE ================= */
-.news-block {
-  display: flex;
-  gap: 20px;
-  flex-shrink: 0;
-  
-}
-
-/* ================= TARJETA ================= */
 .news-card {
   position: relative;
   width: 350px;
   height: 130px;
   display: flex;
   background: #fff;
-  border-top-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-radius: 18px 0 18px 0;
   border: 2px solid #0067b1;
-  box-shadow: 0 0px 10px rgba(0,0,0,0.1);  /* Sombra suave por defecto */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   overflow: hidden;
   cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.3s ease;  /* Transición suave para el hover */
+  transition: all 0.3s ease;
 }
 
-/* ================= EFECTO HOVER EN TARJETA ================= */
 .news-card:hover {
-  background-color: #0067b1;  /* Fondo más claro */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);  /* Sombra más intensa */
-  transform: scale(1.08);  /* Escala un poco la tarjeta */
+  background-color: #0067b1;
+  transform: scale(1.08);
 }
 
-.news-card:hover .news-title {
-  font-size: 26px;  /* Aumenta el tamaño de la fuente */
-  color: #ffff;
-	font-weight: bold;
-}
+.news-card:hover .news-title,
 .news-card:hover .news-meta {
-  font-size: 14px;  /* Aumenta el tamaño de la fuente cuando se pasa el ratón */
-  color: #fff;      /* Cambia el color a negro (puedes elegir otro color) */
-  font-weight: 300; /* Cambia el peso de la fuente si lo deseas */
+  color: #fff;
 }
 
-.news-card:hover .news-text {
-  opacity: 1;  /* Reduce la opacidad del texto */
-}
-
-.goikue-section {
-            display: flex;
-            justify-content: space-between; /* Manda el título a la izquierda y el botón a la derecha */
-            align-items: center; /* Centra verticalmente ambos elementos */
-            padding: 20px;
-            background-color: #FFFFFF; /* Fondo blanco para esta sección */
-            border-bottom: 0px solid #eee; /* Línea separadora suave */
-        }
-
-        .goikue-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #;
-            margin: 0; /* Elimina el margen predeterminado del h1 */
-        }
-
-        .all-goikue-button {
-            background-color: #FFFFFF; /* Fondo del botón blanco */
-            color: #0067b1; /* Texto rojo */
-            border: 2px solid #0067b1; /* Borde rojo */
-            padding: 10px 15px;
-            border-radius: 20px; /* Bordes redondeados como en la imagen */
-            font-weight: bold;
-            text-decoration: none; /* Elimina el subrayado si usas un <a> */
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.26); /* Sombra suave */
-        }
-        
-        .megaphone-icon {
-            margin-right: 8px;
-            /* Placeholder para el icono de megáfono */
-            font-size: 1rem;
-        }
-/* ================= IMAGEN ================= */
 .news-image {
   width: 95px;
-  height: 100%;
-  flex-shrink: 0;
   overflow: hidden;
-  border-bottom-right-radius: 18px;
 }
 
 .news-image img {
@@ -170,7 +130,6 @@ body {
   object-fit: cover;
 }
 
-/* ================= TEXTO ================= */
 .news-text {
   padding: 14px;
   display: flex;
@@ -179,26 +138,20 @@ body {
 }
 
 .news-title {
+  font-family: Roboto;
   font-size: 23px;
-	font-family: Roboto;
   font-weight: 800;
-  line-height: 1;
-	color: #0067b1 ; 
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #0067b1;
 }
 
 .news-meta {
-font-family: Roboto;
+  font-family: Roboto;
+  font-size: 12px;
   font-weight: 300;
   margin-top: 6px;
-  font-size: 12px;
   color: #666;
 }
 
-/* ================= ICONO ================= */
 .news-icon {
   position: absolute;
   right: 10px;
@@ -214,14 +167,12 @@ font-family: Roboto;
 
 .news-icon img {
   width: 18px;
-  height: 18px;
 }
 
-/* ================= OVERLAY ================= */
 .news-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0);
+  background: rgba(0,0,0,0.5);
   display: none;
   align-items: center;
   justify-content: center;
@@ -233,18 +184,11 @@ font-family: Roboto;
 }
 
 .news-modal {
-  position: relative;
   background: #fff;
   width: 90%;
   max-width: 700px;
   border-radius: 18px;
   overflow: hidden;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
 }
 
 .news-modal img {
@@ -270,30 +214,21 @@ font-family: Roboto;
 <body>
 
 <header class="main-header">
-      <div class="logo-container">
-        <!-- Reemplaza 'ruta/del/logo.png' con la ruta de tu imagen de logo real -->
-        <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8560.png" alt="Logo Atlético"  class="logo-img">
-        <span class="site-title">1909RSO</span>
-      </div>
-      <!-- El resto del header (iconos, botón de inicio de sesión) iría aquí -->
-    </header>
- <section class="goikue-section">
-            <h1 class="goikue-title">El Noticiero</h1>
-            
-            <a href="#" class="all-goikue-button">
-                <!-- Placeholder para el icono de megáfono -->
-                <span class="megaphone-icon">📣</span> 
-                Todas las noticias
-            </a>
-        </section>
+  <div class="logo-container">
+    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8560.png" class="logo-img">
+    <span class="site-title">1909RSO</span>
+  </div>
+</header>
+
+<section class="goikue-section">
+  <h1 class="goikue-title">El Noticiero</h1>
+  <a href="#" class="all-goikue-button">📣 Todas las noticias</a>
+</section>
 
 <div class="news-wrapper">
-  <div class="news-marquee" id="marquee">
-    <!-- Las tarjetas se generarán con JS -->
-  </div>
+  <div class="news-marquee" id="marquee"></div>
 </div>
 
-<!-- OVERLAY -->
 <div class="news-overlay" id="overlay">
   <div class="news-modal">
     <span class="close-btn" onclick="closeNews()">✕</span>
@@ -306,54 +241,73 @@ font-family: Roboto;
 </div>
 
 <script>
-// Datos de noticias
+// NEWS DATA (incluye fecha y fuente)
 const newsData = [
-  { title:"IKER LUQUE, RENOVADO HASTA 2028", text:"Texto ampliado 1", image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" },
-  { title:"IKER LUQUE, RENOVADO HASTA 2028", text:"Texto ampliado 2", image:"https://picsum.photos/900/500?2", icon:"https://cdn-icons-png.flaticon.com/512/1828/1828884.png" },
-  { title:"IKER LUQUE, RENOVADO HASTA 2028", text:"Texto ampliado 3", image:"https://picsum.photos/900/500?3", icon:"https://cdn-icons-png.flaticon.com/512/2962/2962301.png" },
-  { title:"IKER LUQUE, RENOVADO HASTA 2028", text:"Texto ampliado 4", image:"https://picsum.photos/900/500?4", icon:"https://cdn-icons-png.flaticon.com/512/3135/3135706.png" },
-  { title:"IKER LUQUE, RENOVADO HASTA 2028", text:"Texto ampliado 5", image:"https://picsum.photos/900/500?5", icon:"https://cdn-icons-png.flaticon.com/512/2920/2920222.png" },
-  { title:"IKER LUQUE, RENOVADO HASTA 2028", text:"Texto ampliado 6", image:"https://picsum.photos/900/500?6", icon:"https://cdn-icons-png.flaticon.com/512/3652/3652191.png" },
-  { title:"Nuevas políticas medioambientales", text:"Texto ampliado 7", image:"https://picsum.photos/900/500?7", icon:"https://cdn-icons-png.flaticon.com/512/427/427735.png" },
-  { title:"Innovación educativa transforma el aprendizaje", text:"Texto ampliado 8", image:"https://picsum.photos/900/500?8", icon:"https://cdn-icons-png.flaticon.com/512/201/201818.png" }
+  {
+    title: "IKER LUQUE, RENOVADO HASTA 2028",
+    text: "Texto ampliado 1",
+    date: "14/09/2025",
+    source: "Real Sociedad",
+    image: "https://cdn.realsociedad.eus/Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg",
+    icon: "https://cdn-icons-png.flaticon.com/512/44/44386.png"
+  },
+  {
+    title: "Nuevas políticas medioambientales",
+    text: "Texto ampliado 2",
+    date: "12/09/2025",
+    source: "Club Oficial",
+    image: "https://picsum.photos/900/500?2",
+    icon: "https://cdn-icons-png.flaticon.com/512/427/427735.png"
+  },
+  {
+    title: "Innovación educativa transforma el aprendizaje",
+    text: "Texto ampliado 3",
+    date: "10/09/2025",
+    source: "Cantera RSO",
+    image: "https://picsum.photos/900/500?3",
+    icon: "https://cdn-icons-png.flaticon.com/512/201/201818.png"
+  }
 ];
 
-// Generar las tarjetas y duplicarlas para efecto infinito
-const marquee = document.getElementById('marquee');
+const marquee = document.getElementById("marquee");
 
 function createNewsCard(news, index) {
-  const card = document.createElement('div');
-  card.className = 'news-card';
+  const card = document.createElement("div");
+  card.className = "news-card";
   card.onclick = () => openNews(index);
 
   card.innerHTML = `
-    <div class="news-image"><img src="${news.image.replace('900/500','300/300')}"></div>
+    <div class="news-image">
+      <img src="${news.image.replace("900/500","300/300")}">
+    </div>
     <div class="news-text">
       <div class="news-title">${news.title}</div>
-      <div class="news-meta">${new Date().toLocaleDateString()} · Fuente</div>
+      <div class="news-meta">${news.date} · ${news.source}</div>
     </div>
-    <div class="news-icon"><img src="${news.icon}"></div>
+    <div class="news-icon">
+      <img src="${news.icon}">
+    </div>
   `;
   return card;
 }
 
-// Agregamos el contenido dos veces para la animación infinita
-newsData.forEach((news, i) => marquee.appendChild(createNewsCard(news, i)));
-newsData.forEach((news, i) => marquee.appendChild(createNewsCard(news, i)));
+// Duplicado para scroll infinito
+newsData.forEach((n,i)=>marquee.appendChild(createNewsCard(n,i)));
+newsData.forEach((n,i)=>marquee.appendChild(createNewsCard(n,i)));
 
-// Overlay
-const overlay = document.getElementById('overlay');
-const modalTitle = document.getElementById('modalTitle');
-const modalText = document.getElementById('modalText');
-const modalImage = document.getElementById('modalImage');
+const overlay = document.getElementById("overlay");
+const modalTitle = document.getElementById("modalTitle");
+const modalText = document.getElementById("modalText");
+const modalImage = document.getElementById("modalImage");
 
-function openNews(i){
+function openNews(i) {
   overlay.classList.add("active");
   modalTitle.innerText = newsData[i].title;
   modalText.innerText = newsData[i].text;
   modalImage.src = newsData[i].image;
 }
-function closeNews(){
+
+function closeNews() {
   overlay.classList.remove("active");
 }
 </script>
