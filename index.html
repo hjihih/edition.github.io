@@ -155,6 +155,19 @@ body {
             /* Placeholder para el icono de megáfono */
             font-size: 1rem;
         }
+.modal-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: Roboto;
+  font-weight: bold;
+  color: #0067b1;
+  text-decoration: none;
+}
+
+.modal-link:hover {
+  text-decoration: underline;
+}
+
 /* ================= IMAGEN ================= */
 .news-image {
   width: 95px;
@@ -315,6 +328,8 @@ font-family: Roboto;
       <h2 id="modalTitle"></h2>
 		<p class="modal-meta" id="modalMeta"></p>
       <p id="modalText"></p>
+	<a id="modalLink" class="modal-link" target="_blank">Leer la noticia completa</a>
+
     </div>
   </div>
 </div>
@@ -328,7 +343,8 @@ const newsData = [
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
    imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
-    type:"Noticia" 
+    type:"Noticia" ,
+   link:"https://www.realsociedad.eus/"
   },
   { title:"222IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
@@ -336,7 +352,8 @@ const newsData = [
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
    imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
-    type:"Fichaje" 
+    type:"Fichaje" ,
+   link:"https://www.realsociedad.eus/"
   },
     { title:"333IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
@@ -344,7 +361,8 @@ const newsData = [
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
 	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
-    type:"Noticia" 
+    type:"Noticia" ,
+   link:"https://www.realsociedad.eus/"
   },
     { title:"444IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
@@ -352,7 +370,8 @@ const newsData = [
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
 	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
-    type:"Noticia" 
+    type:"Noticia" ,
+   link:"https://www.realsociedad.eus/"
   },
     { title:"555IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
@@ -360,7 +379,8 @@ const newsData = [
     source: "Reafdgdfgfdl Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
 	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
-    type:"Noticia" 
+    type:"Noticia" ,
+   link:"https://www.realsociedad.eus/"
   },
     { title:"666IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
@@ -368,7 +388,8 @@ const newsData = [
     source: "Real Sovsfdfvdciedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
 	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
-    type:"Noticia" 
+    type:"Noticia" ,
+   link:"https://www.realsociedad.eus/"
   },
 ];
 const newsTypeConfig = {
@@ -427,13 +448,14 @@ const overlay = document.getElementById('overlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalText = document.getElementById('modalText');
 const modalImage = document.getElementById('modalImage');
-
+const modalLink = document.getElementById('modalLink');
 function openNews(i){
   overlay.classList.add("active");
   modalTitle.innerText = newsData[i].title;
   modalText.innerText = newsData[i].text;
 	modalImage.src = newsData[i].imageModal || newsData[i].image;
 	modalMeta.innerText = `${newsData[i].date} · ${newsData[i].source}`;
+	modalLink.href = newsData[i].link;
 }
 function closeNews(){
   overlay.classList.remove("active");
