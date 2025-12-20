@@ -327,6 +327,7 @@ const newsData = [
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
+   imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
     type:"Noticia" 
   },
   { title:"222IKER LUQUE, RENOVADO HASTA 2028", 
@@ -334,6 +335,7 @@ const newsData = [
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
+   imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
     type:"Fichaje" 
   },
     { title:"333IKER LUQUE, RENOVADO HASTA 2028", 
@@ -341,6 +343,7 @@ const newsData = [
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
+	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
     type:"Noticia" 
   },
     { title:"444IKER LUQUE, RENOVADO HASTA 2028", 
@@ -348,6 +351,7 @@ const newsData = [
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
+	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
     type:"Noticia" 
   },
     { title:"555IKER LUQUE, RENOVADO HASTA 2028", 
@@ -355,6 +359,7 @@ const newsData = [
     date: "43414/09/2025",
     source: "Reafdgdfgfdl Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
+	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
     type:"Noticia" 
   },
     { title:"666IKER LUQUE, RENOVADO HASTA 2028", 
@@ -362,6 +367,7 @@ const newsData = [
     date: "5656514/09/2025",
     source: "Real Sovsfdfvdciedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
+	 imageModal:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_1_media_319888_63113_compressed_945_.jpeg",
     type:"Noticia" 
   },
 ];
@@ -426,7 +432,7 @@ function openNews(i){
   overlay.classList.add("active");
   modalTitle.innerText = newsData[i].title;
   modalText.innerText = newsData[i].text;
-  modalImage.src = newsData[i].image;
+	modalImage.src = newsData[i].imageModal || newsData[i].image;
 	modalMeta.innerText = `${newsData[i].date} · ${newsData[i].source}`;
 }
 function closeNews(){
