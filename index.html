@@ -255,6 +255,12 @@ font-family: Roboto;
 .news-modal-content {
   padding: 20px;
 }
+.modal-meta {
+  font-family: Roboto;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
 
 .close-btn {
   position: absolute;
@@ -307,6 +313,7 @@ font-family: Roboto;
     <img id="modalImage">
     <div class="news-modal-content">
       <h2 id="modalTitle"></h2>
+		<p class="modal-meta" id="modalMeta"></p>
       <p id="modalText"></p>
     </div>
   </div>
@@ -420,6 +427,7 @@ function openNews(i){
   modalTitle.innerText = newsData[i].title;
   modalText.innerText = newsData[i].text;
   modalImage.src = newsData[i].image;
+	modalMeta.innerText = `${newsData[i].date} · ${newsData[i].source}`;
 }
 function closeNews(){
   overlay.classList.remove("active");
