@@ -205,7 +205,6 @@ font-family: Roboto;
   bottom: 10px;
   width: 28px;
   height: 28px;
-  background: #c40000;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -321,45 +320,67 @@ const newsData = [
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
-    icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" 
+    type:"Noticia" 
   },
   { title:"222IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
-    icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" 
+    type:"Fichaje" 
   },
     { title:"333IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
-    icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" 
+    type:"Noticia" 
   },
     { title:"444IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
     date: "14/09/2025",
     source: "Real Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
-    icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" 
+    type:"Noticia" 
   },
     { title:"555IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
     date: "43414/09/2025",
     source: "Reafdgdfgfdl Sociedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
-    icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" 
+    type:"Noticia" 
   },
     { title:"666IKER LUQUE, RENOVADO HASTA 2028", 
     text:"Texto ampliado 1",
     date: "5656514/09/2025",
     source: "Real Sovsfdfvdciedad",
     image:"https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg", 
-    icon:"https://cdn-icons-png.flaticon.com/512/44/44386.png" 
+    type:"Noticia" 
   },
-  
 ];
+const newsTypeConfig = {
+  Fichaje: {
+    color: "#f32fff",
+    icon: "https://cdn-icons-png.flaticon.com/512/44/44386.png"
+  },
+  Noticia: {
+    color: "#4287f5",
+    icon: "https://cdn-icons-png.flaticon.com/512/861/861512.png"
+  },
+  lesion: {
+    color: "#c62828",
+    icon: "https://cdn-icons-png.flaticon.com/512/2965/2965567.png"
+  },
+  cantera: {
+    color: "#ef6c00",
+    icon: "https://cdn-icons-png.flaticon.com/512/1995/1995574.png"
+  },
+  comunicado: {
+    color: "#455a64",
+    icon: "https://cdn-icons-png.flaticon.com/512/1827/1827349.png"
+  }
+};
+
 
 // Generar las tarjetas y duplicarlas para efecto infinito
 const marquee = document.getElementById('marquee');
@@ -368,6 +389,8 @@ function createNewsCard(news, index) {
   const card = document.createElement('div');
   card.className = 'news-card';
   card.onclick = () => openNews(index);
+  
+  const config = newsTypeConfig[news.type] || newsTypeConfig.comunicado;
 
   card.innerHTML = `
     <div class="news-image"><img src="${news.image.replace('900/500','300/300')}"></div>
@@ -375,7 +398,9 @@ function createNewsCard(news, index) {
       <div class="news-title">${news.title}</div>
       <div class="news-meta">${news.date} · ${news.source}</div>
     </div>
-    <div class="news-icon"><img src="${news.icon}"></div>
+    <div class="news-icon" style="background:${config.color}">
+	 <img src="${config.icon}">
+    </div>
   `;
   return card;
 }
