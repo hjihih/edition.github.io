@@ -336,15 +336,19 @@ font-family: Roboto;
 
 .notizi-haundixe-content h2 {
   color: #c60000;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-top: -14px;
+    line-height: 1;
   text-transform: uppercase;
 }
 
 .notizi-haundixe-content p {
+  font-family: Roboto;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.3;
+    margin-top: -10px;
   color: #222;
 }
 
@@ -352,7 +356,7 @@ font-family: Roboto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 18px;
+  margin-top: -16px;
 }
 
 .notizi-haundixe-footer span {
@@ -369,6 +373,7 @@ font-family: Roboto;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+    margin-top: -13px;
 }
 
 .notizi-haundixe-button:hover {
@@ -446,8 +451,8 @@ font-family: Roboto;
 <script>
 // Datos de noticias
   const notiziHaundixeData = {
-    title: "Matarazzo Nuevo",
-    description: "Diego Pablo Simeone ha dado a conocer la lista de convocados que viajarán a Montilivi para disputar el último partido del año 2025. Marcos Llorente retorna tras su lesión...",
+    title: "Sabadell 2-0 Atlético Madrileño: un tropiezo que no cambia el rumbo",
+    description: "El Atlético Madrileño de Fernando Torres no consigue cerrar el año con victoria, pero sí puede decir que, pese a todo, lo termina en primera posición.Fue un partido muy disputado ante un rival destinado a estar en la parte más alta de la clasificación. El filial rojiblanco fue fiel a su estilo, el cual conlleva una presión adelantada que supo atacar el conjunto catalán, que castigó varias veces a la adelantada línea defensiva del Atleti hasta conseguir hacer el 1-0.ue un partido muy disputado ante un rival destinado a estar en la parte más alta de la clasificación. El filial rojiblanco fue fiel a su estilo, el cual conlleva una ",
     meta: "20 diciembre | Atlético Stats",
     image: "https://cdn.realsociedad.eus//Uploads/contenidos/thumbs/_10_web_cabecera_945_.jpg"
   };
@@ -579,8 +584,9 @@ function openNews(i){
 	modalLink.href = newsData[i].link;
 }
 function closeNews(){
-  overlay.classList.remove("active");
+  hoverlay.classList.remove("active");
 }
+
 </script>
 
 </body>
